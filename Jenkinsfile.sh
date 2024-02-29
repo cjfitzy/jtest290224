@@ -19,7 +19,7 @@ pipeline {
             steps{
                 echo "Deploy"
                 sh "pwd"
-                sh "mv buildfile.txt ~/jenkins-pipelines/"
+                sh "mv buildfile.txt ~/jenkins-pipelines/ || true"
             }
         }
 
