@@ -1,14 +1,23 @@
 pipeline {
     agent any
     stages{
-        stage("make dir"){
+        stage("Build"){
             steps{
-                sh "mkdir ~/jenkins-pipelines"
+                echo "Building"
+                sh "touch buildfile.txt"
             }
         }
-        stage ("add files"){
+        stage ("Test"){
             steps{
-                sh "touch ~/jenkins-pipelines/file.txt"
+                echo "Testing"
+                sh "ls -la"
+            }
+        }
+        stage ("Deploy"){
+            steps{
+                echo "Deploy"
+                sh "pwd"
+                sh "mv buildfile.txt ~/jenkins-pipelines/"
             }
         }
 
